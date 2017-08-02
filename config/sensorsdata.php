@@ -9,7 +9,7 @@ return [
      */
     'consumer' => [
         'file' => [
-            'filename' => '',
+            'filename' => storage_path('sensordata.log'),
         ],
         'batch' => [
             'server_url' => '',

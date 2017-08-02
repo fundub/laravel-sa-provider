@@ -1,6 +1,6 @@
 <?php
 
-namespace Fundub\LaravelSaProvider\Consumer;
+namespace Fundub\LaravelSaProvider\Consumers;
 
 use Fundub\LaravelSaProvider\AbstractConsumer;
 

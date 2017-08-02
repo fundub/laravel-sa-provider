@@ -1,11 +1,10 @@
 <?php
 
-namespace Fundub\LaravelSaProvider\SensorsAnalytics;
+namespace Fundub\LaravelSaProvider;
 
 use DateTime;
-use Fundub\LaravelSaProvider\AbstractConsumer;
-use Fundub\LaravelSaProvider\Exception\SensorsAnalyticsException;
-use Fundub\LaravelSaProvider\Exception\SensorsAnalyticsIllegalDataException;
+use Fundub\LaravelSaProvider\Exceptions\SensorsAnalyticsException;
+use Fundub\LaravelSaProvider\Exceptions\SensorsAnalyticsIllegalDataException;
 
 class SensorsAnalytics
 {
