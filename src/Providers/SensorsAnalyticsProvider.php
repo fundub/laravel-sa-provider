@@ -5,10 +5,10 @@ namespace Fundub\LaravelSaProvider\Providers;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Laravel\Lumen\Application as LumenApplication;
 use Illuminate\Support\ServiceProvider;
-use Fundub\LaravelSaProvider\SensorsAnalytics\SensorsAnalytics;
-use Fundub\LaravelSaProvider\Consumer\FileConsumer;
-use Fundub\LaravelSaProvider\Consumer\BatchConsumer;
-use Fundub\LaravelSaProvider\Consumer\DebugConsumer;
+use Fundub\LaravelSaProvider\SensorsAnalytics;
+use Fundub\LaravelSaProvider\Consumers\FileConsumer;
+use Fundub\LaravelSaProvider\Consumers\BatchConsumer;
+use Fundub\LaravelSaProvider\Consumers\DebugConsumer;
 
 class SensorsAnalyticsProvider extends ServiceProvider
 {
@@ -47,8 +47,6 @@ class SensorsAnalyticsProvider extends ServiceProvider
         $this->app->singleton('sa', function () use ($provider) {
             return new SensorsAnalytics($provider->getConsumer());
         });
-
-        $this->app->alias('sa', 'Fundub\LaravelSaProvider\SensorsAnalytics\SensorsAnalytics');
     }
 
     public function getConsumer()
