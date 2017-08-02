@@ -1,0 +1,24 @@
+{
+    "name": "fundub/laravel-sa-provider",
+    "description": "The Laravel provider for Sensors Analytics's official PHP SDK",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "forgottener",
+            "email": "gao.bo168@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "suggest": {
+        "laravel/framework": "To test the Laravel bindings",
+        "laravel/lumen-framework": "To test the Lumen bindings"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fundub\\LaravelSaProvider\\": "src/"
+        }
+    }
+}
