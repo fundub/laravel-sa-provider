@@ -1,6 +1,6 @@
 <?php
 
-namespace Fundub\LaravelSaProvider\Exception;
+namespace Fundub\LaravelSaProvider\Exceptions;
 use Exception;
 
 /**
