@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application as LaravelApplication;
 use Laravel\Lumen\Application as LumenApplication;
 use Illuminate\Support\ServiceProvider;
 use Fundub\LaravelSaProvider\SensorsAnalytics;
+use Fundub\LaravelSaProvider\Consumers\QueueConsumer;
 use Fundub\LaravelSaProvider\Consumers\FileConsumer;
 use Fundub\LaravelSaProvider\Consumers\BatchConsumer;
 use Fundub\LaravelSaProvider\Consumers\DebugConsumer;
@@ -51,10 +52,17 @@ class SensorsAnalyticsProvider extends ServiceProvider
 
     public function getConsumer()
     {
-        $class = $this->app['config']->get('sensorsdata.consumer_type', 'file');
-        switch ($class) {
+        $consumer = $this->app['config']->get('sensorsdata.consumer_type', 'file');
+        switch ($consumer) {
+            case 'queue':
+                $config = $this->app['config']->get('sensorsdata.consumer.queue');
+                $queueName = $config['name'];
+                $server = $config['cluster'];
+                $options = array_shift($server);
+                return new QueueConsumer($server, $options, $queueName);
+                break;
             case 'file':
-                $filename = $this->app['config']->get('sensorsdata.consumer.file.filename', 'sensors_analytics');
+                $filename = $this->app['config']->get('sensorsdata.consumer.file.filename');
                 return new FileConsumer($filename);
                 break;
             case 'batch':
@@ -66,7 +74,7 @@ class SensorsAnalyticsProvider extends ServiceProvider
                 return new DebugConsumer($debugConfig['server_url'], $debugConfig['write_data'], $debugConfig['request_timeout']);
                 break;
             default:
-                return $this->app->make($class);
+                return $this->app->make($consumer);
                 break;
         }
     }
