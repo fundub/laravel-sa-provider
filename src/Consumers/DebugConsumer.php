@@ -3,7 +3,7 @@
 namespace Fundub\LaravelSaProvider\Consumers;
 
 use Fundub\LaravelSaProvider\AbstractConsumer;
-use Fundub\LaravelSaProvider\Exception\SensorsAnalyticsDebugException;
+use Fundub\LaravelSaProvider\Exceptions\SensorsAnalyticsDebugException;
 
 /**
  * DebugConsumer constructor,用于调试模式.
