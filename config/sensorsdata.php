@@ -9,17 +9,8 @@ return [
      */
     'consumer' => [
         'queue' => [
-            'name' => 'sensors_analytics_consumer',
-            'redis' => [
-                'driver'     => 'redis',
-                'servers' => [
-                    'host'     => '127.0.0.1',
-                    'port'     => 6379,
-                    'password' => '',
-                    'database' => 1,
-                    'timeout'  => 5,
-                ]
-            ],
+            'name' => 'app_xxx:sensors_analytics_consumer',
+            'redis' => 'cache.stores.redis',
         ],
         'file' => [
             'filename' => storage_path('logs/sensordata.log'),
