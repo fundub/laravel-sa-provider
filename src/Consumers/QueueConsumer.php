@@ -12,9 +12,9 @@ class QueueConsumer extends AbstractConsumer
 
     private $queueName;
 
-    public function __construct($server, $options, $queueName)
+    public function __construct($server, $queueName)
     {
-        $this->redisInstance = RedisInstance::getInstance($server, $options);
+        $this->redisInstance = RedisInstance::getInstance($server);
         $this->queueName = $queueName;
     }
 

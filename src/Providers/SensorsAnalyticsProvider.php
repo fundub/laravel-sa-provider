@@ -57,9 +57,8 @@ class SensorsAnalyticsProvider extends ServiceProvider
             case 'queue':
                 $config = $this->app['config']->get('sensorsdata.consumer.queue');
                 $queueName = $config['name'];
-                $server = $config['cluster'];
-                $options = array_shift($server);
-                return new QueueConsumer($server, $options, $queueName);
+                $server = $config['redis']['servers'];
+                return new QueueConsumer($server, $queueName);
                 break;
             case 'file':
                 $filename = $this->app['config']->get('sensorsdata.consumer.file.filename');
