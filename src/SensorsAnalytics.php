@@ -28,6 +28,11 @@ class SensorsAnalytics
         $this->clear_super_properties();
     }
 
+    public function getConsumer()
+    {
+        return $this->_consumer;
+    }
+
     private function _normalize_data($data)
     {
         // 检查 distinct_id
