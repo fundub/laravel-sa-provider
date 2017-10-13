@@ -33,4 +33,9 @@ class QueueConsumer extends AbstractConsumer
         }
         $this->redisInstance->close();
     }
+
+    public function getRedisInstance()
+    {
+        return $this->redisInstance;
+    }
 }
