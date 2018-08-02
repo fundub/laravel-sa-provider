@@ -274,6 +274,7 @@ class SensorsAnalytics
      * @return bool
      */
     public function track($distinct_id, $is_login_id, $event_name, $properties = array()) {
+        if(empty($distinct_id)) return false;
         if (!is_string($event_name)) {
             throw new SensorsAnalyticsIllegalDataException("event name must be a str.");
         }
